@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cắt gác</title>
+	<style type="text/css">
+		<style>
+			body{
+				font-size: 18;
+				font-family: Arial, SegoeUI, Time New Romans;
+
+				height: 300px;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+			}
+
+			.header {
+				text-align: center;
+				color: red;
+				font-size: 110%;
+			}
+
+			table {
+			font-family: arial, sans-serif;
+			border-collapse: collapse;
+			width: 100%;
+			}
+
+			td, th {
+			border: 1px solid #dddddd;
+			text-align: left;
+			padding: 8px;
+			}
+
+			thead{
+				font-weight: 700;
+			}
+
+			tr:nth-child(even) {
+			background-color: #dddddd;
+			}
+		</style>
+	</style>
+</head>
+<script type="text/javascript">
+	const SoNguoi = 8;
+	
+
+	function startpoint(days) //days: Khoảng cách ngày từ ngày 24/09/2020 Trí
+	{
+		if (days%3 == 0) {
+			var pos = (3 * (days / 3)) % SoNguoi;
+
+			return pos;
+		}
+		return -1;
+	}
+
+	function makeListOneDay(start){
+		var name = new Array('Trí', 'Hiếu', 'Khánh', 'Nguyên', 'Quang', 'Nhàn', 'An', 'Huy');
+		var fullname = new Array("Lê Hoàng Trọng Trí", 
+			"Hồ Hữu Hiếu", 
+			"Vũ Quốc Khánh", 
+			"Nguyễn Huỳnh Minh Nguyên", 
+			"Nguyễn Minh Quang", 
+			"Lê Thanh Nhàn", 
+			"Đoàn Vương Ngọc An", 
+			"Nguyễn Hoàng Huy");
+		var time = ["21h30 - 23h30", "23h00 - 01h00", "01h00 - 02h30", "02h30 - 04h00", "04h00 - 06h15"];
+		var text = "";
+		var count = 0;
+		var len = name.length;
+		console.log("Giá trị đầu tiên của mảng: " + name[start]);
+
+
+		while(count < 5){
+			var index = (start + count) % 8;
+			text = "<td>" + (count + 1) + "</td><td>" + fullname[index] + "</td><td>" + time[count] + "</td><td>" + name[index] + "</td>";
+			count++;
+
+				var tableRef = document.getElementById('TableList').getElementsByTagName('tbody')[0];
+				var newRow   = tableRef.insertRow(tableRef.rows.length);
+				newRow.innerHTML = text;
+		}
+
+
+
+
+		console.log("Result: " + text);
+
+		return text;			
+	}
+
+	function daysdifference(firstDate, secondDate) {
+		var startDay = new Date(firstDate);
+		var endDay = new Date(secondDate);
+
+		var millisBetween = startDay.getTime() - endDay.getTime();
+		var days = millisBetween / (1000 * 3600 * 24);
+
+		return Math.round(Math.abs(days));
+	}
+
+
+	function page_onload(){
+		var day = daysdifference("9/24/2020", "10/3/2020");
+		console.log("khoảng cách ngày: " + day);
+		var point = startpoint(day);
+		console.log("Vị trí trong mảng: " + point);
+		if (point < 0) {
+			console.log("=> Không gác");
+			return;
+		}
+
+		makeListOneDay(point);
+
+	}
+</script>
+<body onload="page_onload()">
+
+	<div style="vertical-align: center;">
+		<div class="header">
+			<div style="font-weight: 700;">LỊCH CẮT GÁC</div>
+			<div style="font-style: oblique;">Ngày ... tháng ... năm 2020</div>
+			<p>
+		</div>
+
+		<div>
+			<table id="TableList">
+
+				<thead>
+					<tr>
+					    <th>STT</th>
+					    <th>Họ và Tên</th>
+					    <th>Thời gian</th>
+					    <th>Ghi chú</th>
+					 </tr>
+				</thead>
+
+				<tbody>
+					
+				</tbody>
+
+			</table>
+		</div>
+
+		<div style="text-align: center; line-height: 200%; margin-right: -35%; ">
+			<p></p>
+			<div style="font-weight: 700;">TRUNG ĐỘI TRƯỞNG</div>
+			<p/> <p/> 
+			<div>Thiếu úy Vũ Văn Đức</div>
+		</div>
+	</div>
+
+</body>
+</html>
