@@ -10,6 +10,7 @@ $(window).on("load", function(){
 	var inmonth = getCookie("month");
 	var inyear = getCookie("year");
 	var date = new Date();
+	const origialday = new Date(2020, 9, 24);
 	if (inday != null && inmonth != null && inyear != null) {
 		date = new Date(inyear, inmonth, inday);
 		console.log("Date from Cookie: " + date.toUTCString());
@@ -17,10 +18,10 @@ $(window).on("load", function(){
 
 	console.log("Xuất lịch gác cho ngày: " + date.toUTCString());
 
-	var day = daysdifference(new Date(2020, 9, 24), date);
-	$('date1').innerHTML = date.getDay();
-	$("date2").innerHTML = date.getMonth();
-	$("date3").innerHTML = date.getFullYear();
+	var day = daysdifference(origialday, date);
+	document.getElementById("date1").innerHTML = date.getDate();
+	document.getElementById("date2").innerHTML = date.getMonth() + 1;
+	document.getElementById("date3").innerHTML = date.getFullYear();
 
 
 	console.log("khoảng cách ngày: " + day);
