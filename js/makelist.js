@@ -10,15 +10,17 @@ $(window).on("load", function(){
 	var inmonth = getCookie("month");
 	var inyear = getCookie("year");
 	var date = new Date();
-	const origialday = new Date(2020, 9, 24);
+	const origialday = new Date(2020, 8, 24); // mặc định ngày 24/09/2020 Trí (moth: 0 - 11);
 	if (inday != null && inmonth != null && inyear != null) {
-		date = new Date(inyear, inmonth, inday);
+		date = new Date(inyear, inmonth-1, inday);
 		console.log("Date from Cookie: " + date.toUTCString());
 	}
 
 	console.log("Xuất lịch gác cho ngày: " + date.toUTCString());
 
 	var day = daysdifference(origialday, date);
+	var DayofWeek = ["Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy", "Chủ nhật"];
+	document.getElementById("date0").innerHTML = DayofWeek[date.getDay()-1];
 	document.getElementById("date1").innerHTML = date.getDate();
 	document.getElementById("date2").innerHTML = date.getMonth() + 1;
 	document.getElementById("date3").innerHTML = date.getFullYear();
@@ -28,7 +30,12 @@ $(window).on("load", function(){
 	var point = startpoint(day);
 	console.log("Vị trí trong mảng: " + point);
 	if (point < 0) {
-	console.log("=> Không gác");
+		text = '<td class="text-center" colspan="4">Không có lịch gác</td>'
+
+		var tableRef = document.getElementById('TableList').getElementsByTagName('tbody')[0];
+		var newRow   = tableRef.insertRow(tableRef.rows.length);
+		newRow.innerHTML = text;
+
 	return;
 
 	}
@@ -40,9 +47,9 @@ $(window).on("load", function(){
 function startpoint(days) //days: Khoảng cách ngày từ ngày 24/09/2020 Trí
 {
 	if (days%3 == 0) {
-		var pos = (3 * (days / 3)) % SoNguoi;
+		var pos = (5 * (days / 3)) % SoNguoi;
 
-		return pos;
+		return (pos + 1);
 	}
 	return -1;
 }
@@ -75,9 +82,9 @@ function makeListOneDay(start){
 
 		count++;
 
-			var tableRef = document.getElementById('TableList').getElementsByTagName('tbody')[0];
-			var newRow   = tableRef.insertRow(tableRef.rows.length);
-			newRow.innerHTML = text;
+		var tableRef = document.getElementById('TableList').getElementsByTagName('tbody')[0];
+		var newRow   = tableRef.insertRow(tableRef.rows.length);
+		newRow.innerHTML = text;
 	}
 
 	console.log("Result: " + text);
