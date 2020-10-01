@@ -49,7 +49,7 @@ function startpoint(days) //days: Khoảng cách ngày từ ngày 24/09/2020 Tr�
 	if (days%3 == 0) {
 		var pos = (5 * (days / 3)) % SoNguoi;
 
-		return (pos + 1);
+		return (pos);
 	}
 	return -1;
 }
