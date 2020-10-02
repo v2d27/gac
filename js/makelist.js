@@ -2,9 +2,6 @@ const SoNguoi = 8;
 
 // on load 
 $(window).on("load", function(){
-	setCookie('day', 30, 1);
-	setCookie('month', 9, 1);
-	setCookie('year', 2020, 1);
 
 	var inday = getCookie("day");
 	var inmonth = getCookie("month");

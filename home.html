@@ -2,33 +2,36 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Calendar</title>
+	<script src="lib/jquery/dist/jquery.js"></script>
+	<script src="js/cookie.js"></script>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
 	<link rel="stylesheet" href="css/homestyle.css">
 	<script type="text/javascript" src="js/homejs.js"></script>
+
 </head>
 <body>
 	<div class="container">
 
 		<div class="calendar">
 			<header>				
-				<h2>September</h2>
-				<a class="btn-prev fontawesome-angle-left" href="#"></a>
-				<a class="btn-next fontawesome-angle-right" href="#"></a>
+				<h2>THÁNG <span id="title-month">0</span>, <span id="title-year">1978</span></h2>
+				<a class="btn-prev fontawesome-angle-left" href="#" id="prev-month"></a>
+				<a class="btn-next fontawesome-angle-right" href="#" id="next-month"></a>
 			</header>
-			<table>
+			<table id="dataTable">
 				<thead>	
 					<tr>						
-						<td>Mo</td>
-						<td>Tu</td>
-						<td>We</td>
-						<td>Th</td>
-						<td>Fr</td>
-						<td>Sa</td>
-						<td>Su</td>
+						<td>Thứ 2</td>
+						<td>Thứ 3</td>
+						<td>Thứ 4</td>
+						<td>Thứ 5</td>
+						<td>Thứ 6</td>
+						<td>Thứ 7</td>
+						<td>CN</td>
 					</tr>
 				</thead>
 				
-				<tbody>					
+				<tbody data-month="9" data-year="2020">					
 					<tr>
 						<td class="prev-month">26</td>
 						<td class="prev-month">27</td>
@@ -39,7 +42,9 @@
 						<td>1</td>
 					</tr>
 					<tr>
-						<td>2</td>
+						<td>
+							2
+						</td>
 						<td>3</td>
 						<td>4</td>
 						<td>5</td>

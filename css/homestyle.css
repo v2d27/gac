@@ -84,6 +84,7 @@ table {
 .calendar .prev-month,
 .calendar .next-month {
 	color: #cbd1d2;
+	cursor: pointer;
 }
 
 .calendar .prev-month:hover,
