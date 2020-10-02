@@ -1,3 +1,4 @@
+const SoNguoi = 8;
 
 $(document).ready(function(){
 
@@ -26,6 +27,8 @@ $(document).ready(function(){
 		var firstdayofmonth = datetime.getDay(); // 0 - 6
 		var daysinmonth = (new Date(year, month+1, 0)).getDate();
 		var lastdayprevmonth = (new Date(year, month, 0)).getDate();
+		var nowdate = new Date();
+		const origialdate = new Date(2020, 8, 24); // mặc định ngày 24/09/2020 Trí (moth: 0 - 11);
 		//console.log("days in month " + (month + 1) + " is " + daysinmonth);
 
 		if (firstdayofmonth == 0) {
@@ -36,8 +39,20 @@ $(document).ready(function(){
 			 htmltext = htmltext + '<td class="prev-month">' + (lastdayprevmonth - firstdayofmonth + i + 1) + '</td>';
 		}
 
+		var tdstyle = "";
 		for (var i = firstdayofmonth; i < (firstdayofmonth + daysinmonth); i++) {
-			htmltext = htmltext + '<td>' + (i - firstdayofmonth + 1) + '</td>';
+			var idate = new Date(year, month, (i - firstdayofmonth + 1));
+			if (idate.getDate() == nowdate.getDate() && idate.getMonth() == nowdate.getMonth() && idate.getFullYear() == nowdate.getFullYear()) {
+				tdstyle = tdstyle + "current-day";
+			}
+			//console.log(daysdifference(idate, nowdate));
+
+			if (startpoint(daysdifference(idate, origialdate)) >= 0) {
+				tdstyle = tdstyle + " event";
+			}
+
+			htmltext = htmltext + '<td class=" ' + tdstyle + '">' + (i - firstdayofmonth + 1) + '</td>';
+			tdstyle = "";
 			if (i%7 == 0) {
 				var tableRef = $("#dataTable tbody")[0];
 				var newRow   = tableRef.insertRow(tableRef.rows.length);
@@ -128,6 +143,11 @@ $(document).ready(function(){
 		//register td event click
 		registereventtdclick();
 	});
+
+	var nowdate = new Date();
+	$("#dataTable tbody").data("month", nowdate.getMonth());
+	$("#dataTable tbody").data("year", nowdate.getFullYear());
+	$("#next-month").trigger("click");
 })
 
 
@@ -146,4 +166,22 @@ function registereventtdclick(){
 
 		$(location).attr("href", "./table.html");
 	});
+}
+
+
+function daysdifference(startDay, endDay) {
+
+	var millisBetween = startDay.getTime() - endDay.getTime();
+	var days = millisBetween / (1000 * 3600 * 24);
+
+	return Math.round(Math.abs(days));
+}
+function startpoint(days) //days: Khoảng cách ngày từ ngày 24/09/2020 Trí
+{
+	if (days%3 == 0) {
+		var pos = (5 * (days / 3)) % SoNguoi;
+
+		return (pos);
+	}
+	return -1;
 }
