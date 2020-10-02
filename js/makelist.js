@@ -16,8 +16,8 @@ $(window).on("load", function(){
 	console.log("Xuất lịch gác cho ngày: " + date.toUTCString());
 
 	var day = daysdifference(origialday, date);
-	var DayofWeek = ["Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy", "Chủ nhật"];
-	document.getElementById("date0").innerHTML = DayofWeek[date.getDay()-1];
+	var DayofWeek = ["Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy"];
+	document.getElementById("date0").innerHTML = DayofWeek[date.getDay()];
 	document.getElementById("date1").innerHTML = date.getDate();
 	document.getElementById("date2").innerHTML = date.getMonth() + 1;
 	document.getElementById("date3").innerHTML = date.getFullYear();
