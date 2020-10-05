@@ -18,56 +18,57 @@
 <body>
 	<div class="container display-center">
 		<div class="row justify-content-center">
-			<div class="calendar">
-				<header>				
-				<h2>THÁNG <span id="title-month">0</span>, <span id="title-year">1978</span></h2>
-				<a class="btn-prev fontawesome-angle-left" href="#" id="prev-month"></a>
-				<a class="btn-next fontawesome-angle-right" href="#" id="next-month"></a>
-			</header>
-			<table id="dataTable">
-				<thead>	
-					<tr>						
-						<td>Thứ 2</td>
-						<td>Thứ 3</td>
-						<td>Thứ 4</td>
-						<td>Thứ 5</td>
-						<td>Thứ 6</td>
-						<td>Thứ 7</td>
-						<td>CN</td>
-					</tr>
-				</thead>
-				
-				<tbody data-month="9" data-year="2020">					
-					<tr>
-						<td class="prev-month">26</td>
-						<td class="prev-month">27</td>
-						<td>1</td>
-					</tr>
-					<tr>
-						<td>9</td>
-						<td class="event">10</td>
+			<div class="col">
+				<div class="calendar">
+					<header>				
+						<h2>THÁNG <span id="title-month">0</span>, <span id="title-year">1978</span></h2>
+						<a class="btn-prev fontawesome-angle-left" href="#" id="prev-month"></a>
+						<a class="btn-next fontawesome-angle-right" href="#" id="next-month"></a>
+					</header>
 
-					</tr>
-					<tr>
-						<td class="current-day event">23</td>
-						<td>24</td>
-						<td>29</td>
-					</tr>
-					<tr>
-						<td>30</td>
-						<td class="next-month">1</td>
-						<td class="next-month">2</td>
-					</tr>
 
-				</tbody>
+					<table id="dataTable" class="table-striped  justify-content-center table table-responsive-sm">
+						<thead>	
+							<tr>						
+								<td>Thứ 2</td>
+								<td>Thứ 3</td>
+								<td>Thứ 4</td>
+								<td>Thứ 5</td>
+								<td>Thứ 6</td>
+								<td>Thứ 7</td>
+								<td>CN</td>
+							</tr>
+						</thead>
+						
+						<tbody  data-month="9" data-year="2020">					
+							<tr>
+								<td class="prev-month">26</td>
+								<td class="prev-month">27</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td class="event">10</td>
 
-			</table>
+							</tr>
+							<tr>
+								<td class="current-day event">23</td>
+								<td>24</td>
+								<td>29</td>
+							</tr>
+							<tr>
+								<td>30</td>
+								<td class="next-month">1</td>
+								<td class="next-month">2</td>
+							</tr>
 
-		</div> <!-- end calendar -->
+						</tbody>
+
+					</table>
+
+				</div> <!-- end calendar -->
+			</div>
 		</div>
-
-
 	</div> <!-- end container -->
-	
 </body>
 </html>

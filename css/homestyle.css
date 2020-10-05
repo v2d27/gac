@@ -31,7 +31,7 @@ h3 {
 }
 
 table {
-	border-collapse: collapse;
+	border-collapse: none;
 	border-spacing: 0;
 }
 
@@ -52,6 +52,7 @@ table {
 
 .calendar {
 	text-align: center;
+	padding: 20px;
 }
 
 .calendar header {
@@ -64,7 +65,7 @@ table {
 
 .calendar thead {
 	font-weight: 600;
-	text-transform: uppercase;
+	margin-bottom: 4em;
 }
 
 .calendar tbody {
@@ -79,11 +80,14 @@ table {
 	border: 2px solid transparent;
 	border-radius: 50%;
 	display: inline-block;
-	height: 4em;
-	line-height: 4em;
+	height: 50px;
+	
 	text-align: center;
-	width: 4em;
+	vertical-align: center;
+	width: 50px;
 }
+
+
 
 .calendar .prev-month,
 .calendar .next-month {
@@ -114,7 +118,7 @@ table {
 	content: '';
 	height: .5em;
 	left: 50%;
-	margin: -.25em 0 0 -.25em;
+	margin: -.25em 00 -.25em;
 	position: absolute;
 	width: .5em;
 }

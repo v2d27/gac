@@ -61,7 +61,7 @@ function makeListOneDay(start){
 		"Lê Thanh Nhàn", 
 		"Đoàn Vương Ngọc An", 
 		"Nguyễn Hoàng Huy");
-	var time = ["21h30 - 23h30", "23h00 - 01h00", "01h00 - 02h30", "02h30 - 04h00", "04h00 - 06h15"];
+	var time = ["21h30 - 23h30", "23h30 - 01h00", "01h00 - 02h30", "02h30 - 04h00", "04h00 - 06h15"];
 	var text = "";
 	var count = 0;
 	var len = name.length;
